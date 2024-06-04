@@ -1,20 +1,20 @@
 name: Repository Events
 on:
-  pull_request_target:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  issues:
     types:
       - opened
 
 jobs:
-  pr_comment:
+  checkout-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Comment on New Pull Request
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for creating a PR with updates!'
-            })
+      - run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        run: echo "Test"
