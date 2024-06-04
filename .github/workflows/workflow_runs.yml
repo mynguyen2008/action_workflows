@@ -1,4 +1,4 @@
-name: Workflow run
+name: Workflow run after Repository Events
 on:
   workflow_run:
     workflows:
