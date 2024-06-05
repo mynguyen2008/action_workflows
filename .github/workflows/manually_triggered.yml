@@ -1,6 +1,30 @@
 name: Manually triggered
 on:
   workflow_dispatch:
+    inputs:
+      string:
+        description: 'String to echo'
+        type: string
+        required: true
+        default: 'Default string'
+      number:
+        description: 'Number to echo'
+        type: number
+        required: true
+        default: 42
+      option:
+        description: 'Option to echo'
+        type: choice
+        required: true
+        options:
+          - 'Option 1'
+          - 'Option 2'
+        default: true
+      environment:
+        description: 'Environment to echo'
+        type: environment
+        required: true
+        default: production
 
 jobs:
   log-info:
