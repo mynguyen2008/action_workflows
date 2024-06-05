@@ -19,7 +19,7 @@ on:
         options:
           - 'Option 1'
           - 'Option 2'
-        default: true
+        default: 'Option 1'
       environment:
         description: 'Environment to echo'
         type: environment
