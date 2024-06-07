@@ -6,7 +6,7 @@ jobs:
   using_expressions_contexts:
     runs-on: ubuntu-latest
     steps:
-      - name: Expressions
+      - name: Expressions if push event
         id: expressions
         if: github.event_name == 'push'
         run: |
