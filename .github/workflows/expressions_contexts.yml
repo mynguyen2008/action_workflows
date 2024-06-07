@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Expressions
         id: expressions
+        if: github.event_name == 'push'
         run: |
           echo ${{1}}
           echo ${{'This is a string'}}
