@@ -5,6 +5,7 @@ run-name: "Expressions and Contexts triggered by @${{ github.actor }} with event
 jobs:
   runs-on-labels:
     runs-on: ubuntu-latest
+    if: contains(fromJson('["issues", "pull_request"]'), github.event_name)
     steps:
       - name: Run only for bug label
         if: github.event.issue.labels.name == 'bug'
