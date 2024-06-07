@@ -10,6 +10,7 @@ jobs:
       - name: Run only for bug label
         if: contains(github.event.issue.labels.*.name, 'bug')
         run: echo ${{join(github.event.issue.labels.*.name, ', ')}}
+
   using_expressions_contexts:
     runs-on: ubuntu-latest
     steps:
