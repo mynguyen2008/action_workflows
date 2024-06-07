@@ -8,8 +8,8 @@ jobs:
     if: contains(fromJson('["issues", "pull_request"]'), github.event_name)
     steps:
       - name: Run only for bug label
-        if: github.event.issue.labels.name == 'bug'
-        run: echo 'This is a string'
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: echo ${{join(github.event.issue.labels.*.name, ', ')}}
   using_expressions_contexts:
     runs-on: ubuntu-latest
     steps:
