@@ -22,8 +22,9 @@ jobs:
       - name: Set multiline env vars
         run: |
           {
-            echo 'JSON_RESPONSE<<EOF'
-            curl https://example.com
+            echo 'RANDOM_JOKE<<EOF'
+            echo 'Here is random joke: '
+            curl -s https://api.chucknorris.io/jokes/random
             echo EOF
           } >> "$GITHUB_ENV"
       - name: Logs custom env vars
@@ -36,4 +37,4 @@ jobs:
           echo $WF_LEVEL_ENV
           echo $JOB_LEVEL_ENV
           echo $NEW_ENV_VAR
-          echo $JSON_RESPONSE
+          echo $RANDOM_JOKE
