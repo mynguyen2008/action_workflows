@@ -25,6 +25,7 @@ jobs:
             echo 'RANDOM_JOKE<<EOF'
             echo 'Here is random joke: '
             curl https://api.chucknorris.io/jokes/random
+            echo ''
             echo EOF
           } >> "$GITHUB_ENV"
       - name: Logs custom env vars
