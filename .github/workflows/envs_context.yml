@@ -7,7 +7,7 @@ env:
 jobs:
   env-vars-and-context:
     runs-on: ubuntu-latest
-#    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     env:
       JOB_LEVEL_ENV: Available to all steps for this job
     steps:
@@ -15,7 +15,7 @@ jobs:
         run: echo $JOB_LEVEL_ENV
       - name: Logs context
         run: echo '${{ github.ref }}'
-      - name: Logs custome env vars
+      - name: Logs custom env vars
         env:
           STEP_LEVEL_ENV: Available to this step only
           WF_LEVEL_ENV: Overriding the WF_LEVEL_ENV
